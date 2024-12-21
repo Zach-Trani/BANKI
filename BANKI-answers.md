@@ -26,44 +26,65 @@
 ## React
 
    T-React-1) How familiar are you with React Hooks such as useState, useEffect, and useContext? Can you describe how you use them in your projects?
+
       
    explanation: I use useState to manage local component state, like form fields or toggles. useEffect helps handle side effects such as data fetching or subscriptions. With useContext, I can share data across multiple components without passing props deeply. This approach         simplifies data flow and makes the code more transparent.
+   
    use: Apply these hooks in functional components to manage state and side effects. For instance, use useState for small pieces of dynamic UI data (e.g., toggling a modal). Use useEffect for fetching or updating data once the component mounts or whenever certain values            change. Use useContext for global app settings or user data accessible throughout the component tree.
  
  
+
  
  T-React-2) Sometimes a React application can load or render slowly. What are some common causes for this, and how would you troubleshoot them?
+
+
 explanation: Common issues include too many rerenders triggered by state changes or by a useEffect with incorrect dependencies, heavy computations inside the render cycle, or passing large props down multiple children. To troubleshoot, I would use the React Profiler to see which components render frequently, review the dependency arrays in my hooks, and possibly optimize with useCallback or React.memo.
+
 use: Use the React Profiler within the DevTools to pinpoint which components are causing slow renders. Optimize code by memoizing functions (useCallback) or components (React.memo). Split your code into smaller chunks or use lazy loading for large sections. Always ensure useEffect dependency arrays are correct to avoid redundant renders.
  
- 
- 
- T-React-3) Have you ever encountered an infinite rerender issue in React? What typically causes it and how do you fix it?
-explanation: Yes, it usually happens when a component updates its own state inside a useEffect that depends on that same state, causing a constant loop. The solution is to correct the dependency array or conditionally update the state to break the cycle.
-use: Check the dependency array of your useEffect. If you’re updating state within the effect, ensure it’s not inadvertently triggering the effect again. Sometimes you may need a conditional check before updating state or a memoized function (via useCallback) to stabilize function references.
 
  
  
+ T-React-3) Have you ever encountered an infinite rerender issue in React? What typically causes it and how do you fix it?
+
+explanation: Yes, it usually happens when a component updates its own state inside a useEffect that depends on that same state, causing a constant loop. The solution is to correct the dependency array or conditionally update the state to break the cycle.
+
+use: Check the dependency array of your useEffect. If you’re updating state within the effect, ensure it’s not inadvertently triggering the effect again. Sometimes you may need a conditional check before updating state or a memoized function (via useCallback) to stabilize function references.
+
+ 
+
+ 
  T-React-4) How do you pass data between components in React, both simple data and more complex data that needs to be shared across the component tree?
+
 explanation: For simple data, I pass props from a parent component to a child. For larger shared data, I use the Context API (useContext) to avoid prop drilling. If the application grows larger and more complex, I might introduce Redux or another state management library.
+
 use: Use props for straightforward parent-child communication. For state that multiple siblings or distant components need, set up a Context provider at a higher level and consume that context in child components with useContext. For enterprise-level apps with deep or highly dynamic state, integrate Redux or other libraries for robust state management.
  
  
+
  
  T-React-5) Do you have more experience with class-based components or functional components? What are the advantages of using Hooks (functional components) over classes?
+
 explanation: I’ve mostly used functional components with Hooks. I find them more concise, easier to read, and simpler to reuse logic. Hooks also avoid some pitfalls of class components, like this binding and complicated lifecycle methods.
+
 use: When starting a new project or refactoring existing code, prefer functional components for clarity and maintainability. Use Hooks (like useState, useEffect, useReducer) to manage state and side effects. Wrap custom logic in custom hooks for reuse.
  
  
+
  
  T-React-6) What’s your opinion on useEffect? Do you find it intuitive, or do you see it misused?
+
 explanation: useEffect is powerful and generally intuitive once you understand the dependency array. However, it’s often misused by placing too much logic in a single effect or by omitting necessary dependencies, which can lead to bugs or performance issues.
+
 use: Structure side effects clearly. If you need multiple logically distinct side effects, use multiple useEffect calls. Double-check dependencies with an ESLint rule like react-hooks/exhaustive-deps. Use a cleanup function to remove subscriptions or event listeners.
  
+
  
  
  T-React-7) Can you walk me through how the Effect Hook (useEffect) lifecycle works in a functional component?
+
 explanation: After the component renders, React runs the effect. If you return a cleanup function, it’s invoked before the component unmounts or before the effect re-runs. The effect re-runs when a variable in the dependency array changes. An empty array ([]) means the effect runs only once (similar to componentDidMount).
+
 use: *Map each phase to a class-based concept if that helps conceptualize:
 componentDidMount → run once if dependencies are [].
 componentDidUpdate → run when dependencies change.
@@ -73,13 +94,17 @@ This helps keep your side effects predictable and manageable.*
  
  
  T-React-8) What types of functions, events, or inputs do you typically include in a useEffect dependency array?
+
 explanation: I include every external variable, prop, or function used inside the effect. If the function is declared inline in the component and changes on every render, I might use useCallback to avoid triggering the effect unnecessarily.
+
 use: Always list all values referenced inside useEffect—this ensures the effect runs correctly whenever those values change. Leverage ESLint’s react-hooks/exhaustive-deps rule to avoid missing dependencies. When referencing callbacks or objects, wrap them in useCallback or useMemo if needed.
  
  
  
  T-React-9) What do you see as the advantages of using TypeScript over JavaScript in a React application?
+
 explanation: TypeScript helps catch errors at compile time, reducing runtime failures. It improves your IDE’s ability to offer autocompletion and refactoring help, making code more maintainable. Types also act as living documentation, clarifying what data structures and props should look like.
+
 use: Use TypeScript in React projects for better code reliability. Define interfaces or types for component props and states to ensure consistent usage across your app. Take advantage of tooling (like IntelliSense) to reduce debugging time and speed up development.
 
 
