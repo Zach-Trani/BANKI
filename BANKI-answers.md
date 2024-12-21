@@ -8,6 +8,7 @@
 
 ## Table of Contents
 
+0. [React](#react)
 1. [Behavioral](#behavioral)
 2. [Technical](#technical-questions)
    - [HTML](#html)
@@ -21,6 +22,36 @@
 5. [Resources](#resources)
 
 ---
+
+## React
+
+ T-React-1) How familiar are you with React Hooks such as useState, useEffect, and useContext? Can you describe how you use them in your projects?
+   Explanation: This question assesses the candidate’s overall knowledge of React Hooks. Their answer should demonstrate understanding of the common hooks and how they’re applied to manage state and side effects.
+ 
+ T-React-2) Sometimes a React application can load or render slowly. What are some common causes for this, and how would you troubleshoot them?
+   Explanation: Slow rendering can happen if components rerender too frequently. They might mention an infinite rerender caused by a useEffect with the wrong dependency, or heavy computations inside components.
+ 
+ T-React-3) Have you ever encountered an infinite rerender issue in React? What typically causes it and how do you fix it?
+   Explanation: Infinite rerenders often stem from updating state within a useEffect that depends on that same state. The candidate’s understanding of dependency arrays and side effects is key here.
+ 
+ T-React-4) How do you pass data between components in React, both simple data and more complex data that needs to be shared across the component tree?
+   Explanation: Candidates should talk about passing props from parent to child for basic data, and using useContext or third-party state management solutions like Redux for more complex data sharing.
+ 
+ T-React-5) Do you have more experience with class-based components or functional components? What are the advantages of using Hooks (functional components) over classes?
+   Explanation: This question checks if they understand how Hooks improve readability, reusability, and stability compared to classes. Also, many modern React apps prefer functional components.
+ 
+ T-React-6) What’s your opinion on useEffect? Do you find it intuitive, or do you see it misused?
+   Explanation: This question probes the candidate’s experience with side effects in functional components. They might mention that useEffect is sometimes used as a catch-all and discuss best practices for its dependencies.
+ 
+ T-React-7) Can you walk me through how the Effect Hook (useEffect) lifecycle works in a functional component?
+   Explanation: The candidate should explain how useEffect runs after render, cleanup functions, and how the dependency array dictates when the effect runs.
+
+T-React-8) What types of functions, events, or inputs do you typically include in a useEffect dependency array?
+   Explanation: A thorough answer will mention including all external variables/functions used in the effect. They may also reference potential pitfalls of omitting dependencies.
+
+ T-React-9) What do you see as the advantages of using TypeScript over JavaScript in a React application?
+   Explanation: Candidates should highlight benefits like enhanced type safety, better tooling (autocomplete, IntelliSense), fewer runtime errors, and easier refactoring.
+
 
 ## Behavioral
 
